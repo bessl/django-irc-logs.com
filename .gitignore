@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+*.swp
+tmp/*
+django.mo
+tags
+bin/*
+settings.py
