@@ -7,3 +7,5 @@ tags
 bin/*
 settings.py
 irclogger/management/*
+django.wsgi
+fabfile.py
