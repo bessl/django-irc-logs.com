@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load humanize %}
+{% load colorize %}
+{% load cache %}
+<h1>Welcome</h1>
+<p><strong>django-irc-logs.com</strong> is logging messages from the <a href="irc://irc.freenode.net/django">#django IRC channel</a> for you.<br />
+You can read what people were talking about in the IRC channel. That way, possibly useful information is logged and not lost.<br />
+You can <a href="/today/">browse per day</a> in the archive or <a href="/search/">search</a> for something.</p>
+<p>
+Hm, ok, and what's Django? <br />
+
+Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.<br />
+You can find more information at <a href="https://www.djangoproject.com/">https://www.djangoproject.com/</a>
+</p>
+
+<h2>Technical notes</h2>
+
+<ul>
+  <li>Logged lines: {{ line_count|intcomma }}</li>
+  <li>Last update: {{ last_update.pub_date }}</li>
+  <li>Started at: June 19, 2011</li>
+</ul>
+
+<h2>Archive</h2>
+
+<p>Jump directly to the daily archive by selecting a date.<br />
+
+Read the logs starting by <a href="/today/">→ today</a> or select a specific day: 
+
+<select id="date">
+<option>--------</option>
+{% for day in archive_days %}
+<option value="/{{ day|date:"Y/M/d"|lower }}/">{{ day|naturalday }}</option>
+{% endfor %}
+</select>
+</p>
+
+<h2>Last logged lines</h2>
+
+<ul id="ll">
+{% for log in last_lines %}
+<li class="{% cycle 'row1' 'row2' %} le" rel="{{ log.user|lower }}"><span style="color: {{ log.user|colorize }};" class="username" rel="{{ log.user|lower }}">&lt;{{ log.user }}&gt;</span> {{ log.msg|urlize }}</li>
+{% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("select#date").change(function() {
+  var redirect;
+  redirect = $(this).val();
+  document.location.href = redirect;
+  });
+});
+</script>
+{% endblock %}

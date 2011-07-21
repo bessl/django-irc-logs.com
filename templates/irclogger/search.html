@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load colorize %}
+
+{% block content %}
+
+<h1>Search</h1>
+
+{% if logs %}
+
+<h2>Results:</h2>
+
+<div class="pagination">
+  <span class="step-links">
+    {% if logs.has_previous %}
+    <a href="?page={{ logs.previous_page_number }}&q={{ q }}">← previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ logs.number }} of {{ logs.paginator.num_pages }}.
+    </span>
+
+    {% if logs.has_next %}
+    <a href="?page={{ logs.next_page_number }}&q={{ q }}">next →</a>
+    {% endif %}
+  </span>
+</div>
+
+  <ul>
+    {% for log in logs %}
+    <li class="search_li le {% cycle 'row1' 'row2' %}"><a href="/{{ log.pub_date|date:"Y/M/d"|lower }}/#{{ log.id }}">more</a> <a class="sli" href="/{{ log.pub_date|date:"Y/M/d"|lower }}/#{{ log.id }}"><span class="norm">[{{ log.pub_date|date:"b d Y" }}]</span> <span style="color: {{ log.user|colorize }};" class="username">&lt;{{ log.user }}&gt;</span> <span class="norm">{{ log.msg }}</span></a></li>
+    {% endfor %}
+  </ul>
+
+{% else %}
+
+  {% if q %}
+    {% if q|length < 4 %}
+      Please enter at least a 4 digits long search phrase.
+    {% else %}
+      Sorry, nothing found for <strong>"{{ q }}"</strong>
+    {% endif %}
+  {% endif %}
+  {% if not q %}
+  <form action="/search/" method="GET">
+	  <input type="text" value="" name="q"> 
+	  <input type="submit" value="search">
+  </form>
+  {% endif %}
+
+{% endif %}
+
+{% endblock %}

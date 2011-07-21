@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<html>
+  <head>
+    <title>Django IRC logs</title>
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" type="image/x-icon" /> 
+    <link href="{{ STATIC_URL }}css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="{{ STATIC_URL }}js/jquery.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h1 class="title"><a href="/">#django IRC logs</a></h1>
+      <div id="search">
+      <form method="GET" action="/search/">
+        <input type="text" name="q" value="{{ q }}"> 
+        <input type="submit" value="search">
+      </form>
+      </div>
+      <br class="clear"/>
+    </div>
+    <div id="content">
+{% block content %}
+{% endblock %}
+    </div>
+    <div id="footer">
+      Copyright © {% now "Y" %} django-irc-logs.com. Django is a registered trademark of the Django Software Foundation.<br/>
+      Website built by <a href="http://bernhardessl.com">Bernhard Essl</a>, powered by <a href="http://djangoproject.com/">Django</a>.
+    </div>
+  </body>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16545657-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+ </script>
+</html>

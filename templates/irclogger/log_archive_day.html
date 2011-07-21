@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load colorize %}
+
+{% block content %}
+<h2>{{ day }}</h2>
+
+{% include "irclogger/_date_menu.html" %}
+
+<ul>
+{% for log in object_list %}
+<li class="{% cycle 'row1' 'row2' %} le" rel="{{ log.user|lower }}"><a href="#{{ log.id }}" name="{{ log.id }}">#</a> {{ log.pub_date|date:"H:i" }} <span style="color:{{ log.user|colorize }};" class="username" rel="{{ log.user|lower }}">&lt;{{ log.user }}&gt;</span> {{ log.msg|urlize }}</li>
+{% endfor %}
+</ul>
+
+{% include "irclogger/_date_menu.html" %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(".le span").hover(
+function () { $('li[rel="'+$(this).attr("rel")+'"]').addClass("highlight"); }, 
+function () { $('li[rel="'+$(this).attr("rel")+'"]').removeClass("highlight");}
+)
+});
+</script>
+{% endblock %}

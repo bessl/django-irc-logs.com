@@ -1,0 +1,7 @@
+{% if next_day %}
+<a href="/{{ next_day|date:"Y/M/d"|lower }}/">← next day</a>
+{% endif %}
+&nbsp;&nbsp;
+{% if previous_day %}
+<a href="/{{ previous_day|date:"Y/M/d"|lower }}/">previous day →</a>
+{% endif %}

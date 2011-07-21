@@ -6,3 +6,4 @@ django.mo
 tags
 bin/*
 settings.py
+irclogger/management/*
