@@ -1,3 +1,3 @@
-django-irc-logs.com is logging messages from the #django IRC channel for you.
+The website at django-irc-logs.com is logging messages from the #django IRC channel for you.
 You can read what people were talking about in the IRC channel. That way, possibly useful information is logged and not lost.
 You can browse per day in the archive or search for something.
