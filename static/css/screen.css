@@ -1,11 +1,11 @@
 body {
-font: normal normal normal 14px Verdana, sans-serif;
-padding: 0px;
-margin: 0px;
+  font: normal normal normal 14px Verdana, sans-serif;
+  padding: 0px;
+  margin: 0px;
 }
 ul {
-padding: 0px;
-list-style-type: none;
+  padding: 0px;
+  list-style-type: none;
 }
 h1 {
   color: #487858;
@@ -16,32 +16,32 @@ h2 {
   font-size: 16px;
 }
 #content a {
-color: #AB5603;
-text-decoration:none;
+  color: #AB5603;
+  text-decoration:none;
 }
 #content a:hover {
-color: #AB5603;
-text-decoration:underline;
+  color: #AB5603;
+  text-decoration:underline;
 }
 .username {
-font-weight: bold;
+  font-weight: bold;
 }
 .row1 {
-background-color:#EEE;
+  background-color:#EEE;
 }
 .row2 {
-background: #FFF;
+  background: #FFF;
 }
 .highlight {
-background-color: #E0FFB8;;
+  background-color: #E0FFB8;;
 }
 #header {
-padding-left: 10px;
-padding-top: 10px;
-background-color: #092E20;
-color: white;
-height:60px;
-min-height:60px;
+  padding-left: 10px;
+  padding-top: 10px;
+  background-color: #092E20;
+  color: white;
+  height:60px;
+  min-height:60px;
 }
 #header h1.title {
   font-size:26px;
@@ -64,30 +64,30 @@ min-height:60px;
   color:white;
 }
 #content {
-padding-left: 10px;
-line-height:18px;
+  padding-left: 10px;
+  line-height:18px;
 }
 div#search {
-float:right;
-padding: 18px 10px 0 0;
+  float:right;
+  padding: 18px 10px 0 0;
 }
 a.sli {
-text-decoration:none;
+  text-decoration:none;
 }
 li.search_li{
-margin:10px;
+  margin:10px;
 }
 .norm {
-color:black;
+  color:black;
 }
 .clear {
-clear: both;
-height: 0;
-line-height: 0;
+  clear: both;
+  height: 0;
+  line-height: 0;
 }
 ul#al li {
   padding:2px;
 }
 ul#ll li{
-font-size:11px;
+  font-size:11px;
 }
